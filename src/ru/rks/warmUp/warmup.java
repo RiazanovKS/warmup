@@ -1,10 +1,20 @@
 package ru.rks.warmUp;
 
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+
 public class warmup {
     public static void main(String[] args) {
-        int[] mas = {2, 4,6,3,7,1};
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите кол-во заказов");
+        int countOfOrders = scanner.nextInt();
+        System.out.println("Введите время");
+        int time = scanner.nextInt();
+        int[] mas =new int[countOfOrders];
+        fillingArr(mas);
         sort(mas);
-        System.out.println("Вывод:"+ selection(mas,2));
+        System.out.println("Вывод:"+ selection(mas,time));
     }
 
     /**
@@ -39,5 +49,15 @@ public class warmup {
             sum+=mas[i];
         }
         return sum;
+    }
+
+    /**
+     * Метод заполняет массив случайными числами от 1 до 50.
+     * @param arr заполняемый массив.
+     */
+    public static void fillingArr(int[] arr){
+        for(int i=0;i<arr.length;i++){
+            arr[i]= (int)(Math.random()*50);
+        }
     }
 }
